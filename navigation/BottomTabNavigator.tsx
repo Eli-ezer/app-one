@@ -2,9 +2,9 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import HomeScreen from '../screens/HomeScreen';
-import AsistenciaScreen from '../screens/AnnouncementsScreen';
+import AsistenciaScreen from '../screens/AttendanceScreen';
 import CalificacionesScreen from '../screens/ScoreClassScreen';
-import AvisosScreen from '../screens/AttendanceScreen';
+import AvisosScreen from '../screens/AnnouncementsScreen';
 import ClasesScreen from '../screens/ClassScreen';
 
 const Tab = createBottomTabNavigator();
@@ -30,13 +30,21 @@ const BottomTabNavigator = () => {
             iconName = 'alert-circle'; // Icono por defecto
           }
 
-          return <Ionicons name={iconName} size={size} color={color} />;
+          const iconSize = focused ? 32 : 28;
+
+          return <Ionicons name={iconName} size={iconSize} color={color} />;
         },
         tabBarActiveTintColor: '#6200ee', // Color del ícono activo
         tabBarInactiveTintColor: '#666', // Color del ícono inactivo
         tabBarStyle: {
-          paddingBottom: 5, // Ajuste de padding para el menú inferior
+          paddingBottom: 30, // Ajuste de padding para el menú inferior
+          paddingTop: 10,
+          height: 75, // Altura del menú inferior
         },
+        tabBarLabelStyle: {
+          fontSize: 12, // Tamaño de la fuente de las etiquetas
+          marginBottom: 5, // Margen inferior para las etiquetas
+        }
       })}
     >
       <Tab.Screen name="Asistencia" component={AsistenciaScreen} options={{ title: 'Asistencia' }} />
