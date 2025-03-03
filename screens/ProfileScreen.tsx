@@ -1,50 +1,38 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
-import Header from '../components/Header';
-import Card from '../components/Card';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
 const ProfileScreen = () => {
   // Datos de ejemplo para el perfil
   const userProfile = {
-    name: 'Juan Pérez',
-    email: 'juan.perez@example.com',
-    grade: '10mo Grado',
-    profileImage: 'https://via.placeholder.com/150', // URL de imagen de perfil
+    name: 'Divy Jani',
+    class: '9A Solen...',
+    rollNo: '1',
+    profileImage: 'https://source.unsplash.com/150x150/?portrait', // URL de imagen de perfil
   };
 
   return (
-    <ScrollView style={styles.container}>
-      <Header title="Perfil" />
-      <View style={styles.content}>
-        <Card title="Información del Perfil">
-          <View style={styles.profileInfo}>
-            <Image
-              source={{ uri: userProfile.profileImage }}
-              style={styles.profileImage}
-            />
-            <Text style={styles.profileName}>{userProfile.name}</Text>
-            <Text style={styles.profileEmail}>{userProfile.email}</Text>
-            <Text style={styles.profileGrade}>Grado: {userProfile.grade}</Text>
-          </View>
-        </Card>
-
-        <Card title="Actividades Recientes">
-          <Text style={styles.activityText}>No hay actividades recientes.</Text>
-        </Card>
+    <View style={styles.container}>
+      <View style={styles.profileHeader}>
+        <Image
+          source={{ uri: userProfile.profileImage }}
+          style={styles.profileImage}
+        />
+        <Text style={styles.profileName}>{userProfile.name}</Text>
+        <Text style={styles.profileClass}>{userProfile.class}</Text>
+        <Text style={styles.profileRollNo}>Roll No.: {userProfile.rollNo}</Text>
       </View>
-    </ScrollView>
-  );
+    </View>
+  ); 
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  content: {
-    padding: 16,
-  },
-  profileInfo: {
+  profileHeader: {
     alignItems: 'center',
   },
   profileImage: {
@@ -54,23 +42,18 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   profileName: {
-    fontSize: 18,
+    fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 8,
   },
-  profileEmail: {
-    fontSize: 16,
+  profileClass: {
+    fontSize: 18,
     color: '#666',
     marginBottom: 8,
   },
-  profileGrade: {
+  profileRollNo: {
     fontSize: 16,
     color: '#666',
-  },
-  activityText: {
-    fontSize: 16,
-    color: '#666',
-    textAlign: 'center',
   },
 });
 

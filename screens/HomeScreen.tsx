@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import Header from '../components/Header';
 import Card from '../components/Card';
-
+import Profile from '../components/Profile';
 const HomeScreen = () => {
   // Datos de ejemplo para el panel
   const userInfo = {
@@ -10,6 +10,8 @@ const HomeScreen = () => {
     grade: '10mo Grado',
     average: '8.5',
     attendance: '95%',
+    email: 'alumno@email.com',
+    profileImage: 'https://cdn-icons-png.flaticon.com/512/3135/3135768.png',
   };
 
   const announcements = [
@@ -19,14 +21,8 @@ const HomeScreen = () => {
 
   return (
     <ScrollView style={styles.container}>
-      <Header title="Bienvenido" />
       <View style={styles.content}>
-        <Card title="Información del Estudiante">
-          <Text>Nombre: {userInfo.name}</Text>
-          <Text>Grado: {userInfo.grade}</Text>
-          <Text>Promedio: {userInfo.average}</Text>
-          <Text>Asistencia: {userInfo.attendance}</Text>
-        </Card>
+      <Profile userInfo={userInfo} />
 
         <Card title="Anuncios Recientes">
           {announcements.map((announcement) => (
